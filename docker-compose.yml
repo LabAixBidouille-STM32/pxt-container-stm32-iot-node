@@ -1,0 +1,11 @@
+version: '2.1'
+
+services:
+  pxt-container-stm32-iot-node:
+    image: pxt-container-stm32-iot-node
+    build: .
+    environment:
+      NODE_ENV: production
+    ports:
+      - 3232:3232
+      - 3233:3233
