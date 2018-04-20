@@ -19,7 +19,7 @@ RUN git clone ${GIT_URL}
 
 WORKDIR pxt-stm32-iot-node/
 
-RUN curl -s 'https://api.github.com/repos/LabAixBidouille-STM32/pxt-stm32-iot-node/releases/latest'| jq '.tag_name' | xargs git checkout  &&\
+RUN curl -s 'https://api.github.com/repos/LabAixBidouille-STM32/pxt-stm32-iot-node/releases/latest'|jq '.tag_name'|xargs git checkout  &&\
  npm install
 
 EXPOSE 3232 3233
