@@ -1,0 +1,14 @@
+sudo: true
+dist: trusty
+
+jobs:
+  include:
+    - stage: build docker image
+      script:
+      - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+      - docker build --rm -f Dockerfile -t pxt-container-stm32-iot-node:latest .
+      - docker images
+      - docker tag  pxt-container-stm32-iot-node:latest $DOCKER_USERNAME/pxt-container-stm32-iot-node:latest
+      - docker push $DOCKER_USERNAME/pxt-container-stm32-iot-node:latest
+    - stage: test
+    - script: docker run --rm $DOCKER_USERNAME/pxt-container-stm32-iot-node cat hello.txt

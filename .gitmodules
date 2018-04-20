@@ -1,9 +1,0 @@
-[submodule "pxt"]
-	path = pxt
-	url = https://github.com/Microsoft/pxt
-[submodule "pxt-common-packages"]
-	path = pxt-common-packages
-	url = https://github.com/Microsoft/pxt-common-packages
-[submodule "pxt-stm32-iot-node"]
-	path = pxt-stm32-iot-node
-	url = https://github.com/LabAixBidouille-STM32/pxt-stm32-iot-node
