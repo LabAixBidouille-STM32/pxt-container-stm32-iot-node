@@ -2,7 +2,8 @@ FROM node:9-stretch
 
 ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
 ENV PATH=${NPM_CONFIG_PREFIX}/bin/:${PATH}
-ENV GIT_URL="https://github.com/LabAixBidouille-STM32/pxt-stm32-iot-node.git"
+ARG GIT_URL="https://github.com/LabAixBidouille-STM32/pxt-stm32-iot-node.git"
+ARG GIT_COMMIT="HEAD"
 WORKDIR /usr/src/makecode
 
 
@@ -19,7 +20,7 @@ RUN git clone ${GIT_URL}
 
 WORKDIR pxt-stm32-iot-node/
 
-RUN curl -s 'https://api.github.com/repos/LabAixBidouille-STM32/pxt-stm32-iot-node/releases/latest'|jq '.tag_name'|xargs git checkout  &&\
+RUN git checkout ${GIT_COMMIT} &&\
  npm install
 
 EXPOSE 3232 3233
