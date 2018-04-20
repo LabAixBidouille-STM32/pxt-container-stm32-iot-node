@@ -11,4 +11,4 @@ jobs:
       - docker tag  pxt-container-stm32-iot-node:latest $DOCKER_USERNAME/pxt-container-stm32-iot-node:latest
       - docker push $DOCKER_USERNAME/pxt-container-stm32-iot-node:latest
     - stage: test
-    - script: docker run --rm $DOCKER_USERNAME/pxt-container-stm32-iot-node cat hello.txt
+    - script: docker run --rm $DOCKER_USERNAME/pxt-container-stm32-iot-node pxt buildtarget
