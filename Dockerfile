@@ -1,4 +1,4 @@
-FROM node:9-wheezy
+FROM node:9-slim
 
 ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
 ENV PATH=${NPM_CONFIG_PREFIX}/bin/:${PATH}
