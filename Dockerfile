@@ -6,13 +6,16 @@ ARG GIT_URL="https://github.com/LabAixBidouille-STM32/pxt-stm32-iot-node.git"
 ARG GIT_COMMIT="HEAD"
 WORKDIR /usr/src/makecode
 
+RUN printf "deb http://httpredir.debian.org/debian jessie-backports main non-free\ndeb-src http://httpredir.debian.org/debian jessie-backports main non-free" > /etc/apt/sources.list.d/backports.list
+
+
 RUN apt-get update &&\ 
+apt-get -t jessie-backports install -y cmake &&\
 apt-get install -y \
-cmake \
 gcc-arm-none-eabi \
 git \
 jq \ 
-python2.7\
+python\
 &&\
 npm install -g pxt
 
