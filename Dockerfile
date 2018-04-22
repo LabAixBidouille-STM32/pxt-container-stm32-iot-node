@@ -6,11 +6,11 @@ ARG GIT_URL="https://github.com/LabAixBidouille-STM32/pxt-stm32-iot-node.git"
 ARG GIT_COMMIT="HEAD"
 WORKDIR /usr/src/makecode
 
-
 RUN apt-get update &&\ 
 apt-get install -y \
 cmake \
 gcc-arm-none-eabi \
+git \
 jq \ 
 python2.7\
 &&\
